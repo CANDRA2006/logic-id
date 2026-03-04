@@ -2,10 +2,12 @@
 
 Game otak kompetitif berbasis React + Firebase. Uji logika, pengenalan pola, dan berpikir kritis dengan tekanan waktu.
 
+🌐 **Live Demo:** https://logic-id.web.app
+
 ## Teknologi
 
 - React + Vite + Tailwind CSS + Framer Motion
-- Firebase Auth, Firestore
+- Firebase Authentication + Firestore
 - React Router
 
 ## Fitur
@@ -35,6 +37,8 @@ npm run dev
 4. Deploy indexes dari `firestore.indexes.json`
 
 ## Environment Variables
+
+Buat file `.env` dari `.env.example` lalu isi dengan config Firebase kamu:
 
 ```
 VITE_FIREBASE_API_KEY=
