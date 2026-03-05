@@ -79,7 +79,7 @@ Game otak kompetitif berbasis React + Firebase. Uji logika, pengenalan pola, dan
 
 ```bash
 # 1. Clone repository
-git clone https://github.com/USERNAME/logic-arena.git
+git clone https://github.com/candra2006/logic-arena.git
 cd logic-arena
 
 # 2. Install dependencies
