@@ -401,14 +401,31 @@ export const translations = {
   },
 };
 
+// Safe localStorage helpers
+const safeGetStorage = (key, fallback) => {
+  try {
+    return localStorage.getItem(key) ?? fallback;
+  } catch {
+    return fallback;
+  }
+};
+
+const safeSetStorage = (key, value) => {
+  try {
+    localStorage.setItem(key, value);
+  } catch {
+    // Silently fail (private mode, quota exceeded, etc.)
+  }
+};
+
 const LangContext = createContext(null);
 
 export const LangProvider = ({ children }) => {
-  const [lang, setLang] = useState(() => localStorage.getItem("lang") || "en");
+  const [lang, setLang] = useState(() => safeGetStorage("lang", "en"));
 
   const switchLang = (code) => {
     setLang(code);
-    localStorage.setItem("lang", code);
+    safeSetStorage("lang", code);
   };
 
   const t = translations[lang] || translations.en;

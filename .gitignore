@@ -5,12 +5,20 @@ node_modules/
 .env
 .env.local
 .env.production
+.env.development
+*.env.*
+!.env.example
 
 # Build output
 dist/
 
 # Firebase
 .firebase/
+firebase-debug.log
+firestore-debug.log
+database-debug.log
+ui-debug.log
+.runtimeconfig.json
 
 # OS
 .DS_Store
