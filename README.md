@@ -13,7 +13,6 @@
   <img src="https://img.shields.io/badge/Firebase-10-FFCA28?style=flat-square&logo=firebase" />
   <img src="https://img.shields.io/badge/Tailwind-3-06B6D4?style=flat-square&logo=tailwindcss" />
   <img src="https://img.shields.io/badge/Vite-5-646CFF?style=flat-square&logo=vite" />
-  <img src="https://img.shields.io/badge/license-MIT-green?style=flat-square" />
 </p>
 
 ---
