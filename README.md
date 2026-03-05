@@ -33,7 +33,7 @@ Game otak kompetitif berbasis React + Firebase. Uji logika, pengenalan pola, dan
 <p align="center">
   <img src="docs/screenshots/Community.png" width="48%" alt="Community" />
 <p align="center">
-  <img src="docs/screenshots/Leaderboards.png" width="48%" alt="Leaderboard" />
+  <img src="docs/screenshots/Leaderboards.png" width="48%" alt="Leaderboards" />
 </p>
 
 ---
