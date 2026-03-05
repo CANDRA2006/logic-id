@@ -103,7 +103,7 @@ export default function Home() {
       )}
 
       <footer className="border-t border-white/5 py-8 px-6 text-center">
-        <p className="text-zinc-700 text-xs">Logic Arena — Built with React, Firebase, and Tailwind CSS</p>
+        <p className="text-zinc-700 text-xs">Logic Arena © 2026 | All rights reserved.</p>
       </footer>
     </div>
   );

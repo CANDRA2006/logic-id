@@ -8,15 +8,14 @@ import { patternQuestions } from "../data/patterns";
 import { criticalThinkingQuestions } from "../data/criticalThinking";
 import { calculateScore, calculateXP, saveMatchResult } from "../services/gameService";
 import CircularTimer from "../components/CircularTimer";
-
-const QUESTIONS_MAP = { math: mathLogicQuestions, patterns: patternQuestions, critical: criticalThinkingQuestions };
+import LangSwitcher from "../components/LangSwitcher";
 
 function shuffle(arr) { return [...arr].sort(() => Math.random() - 0.5); }
 
 export default function Game() {
   const { category } = useParams();
   const { user, refreshUserData } = useAuth();
-  const { t } = useLang();
+  const { lang, t } = useLang();
   const g = t.game;
   const p = t.play;
   const navigate = useNavigate();
@@ -26,11 +25,13 @@ export default function Game() {
     patterns: p.categories[1].label,
     critical: p.categories[2].label,
   };
+
   const CATEGORY_COLORS = {
     math: "text-violet-400 border-violet-500/30 bg-violet-500/10",
     patterns: "text-cyan-400 border-cyan-500/30 bg-cyan-500/10",
     critical: "text-emerald-400 border-emerald-500/30 bg-emerald-500/10",
   };
+
   const DIFF_LABELS = { easy: g.easy, medium: g.medium, hard: g.hard };
   const DIFF_COLORS = {
     easy: "text-emerald-400 border-emerald-500/30 bg-emerald-500/10",
@@ -38,8 +39,19 @@ export default function Game() {
     hard: "text-red-400 border-red-500/30 bg-red-500/10",
   };
 
-  const allQuestions = QUESTIONS_MAP[category] || mathLogicQuestions;
-  const [questions] = useState(() => shuffle(allQuestions).slice(0, 10));
+  const allQuestionsMap = {
+    math: mathLogicQuestions,
+    patterns: patternQuestions,
+    critical: criticalThinkingQuestions,
+  };
+
+  // Ambil soal sesuai bahasa, fallback ke English
+  const getLangQuestions = (language) => {
+    const pool = allQuestionsMap[category] || mathLogicQuestions;
+    return pool[language] || pool["en"];
+  };
+
+  const [questions, setQuestions] = useState(() => shuffle(getLangQuestions(lang)).slice(0, 10));
   const [currentIdx, setCurrentIdx] = useState(0);
   const [timeLeft, setTimeLeft] = useState(20);
   const [selected, setSelected] = useState(null);
@@ -51,6 +63,18 @@ export default function Game() {
   const [results, setResults] = useState(null);
 
   const currentQ = questions[currentIdx];
+
+  // Reload soal saat bahasa berubah, reset game
+  useEffect(() => {
+    if (gameOver) return;
+    setQuestions(shuffle(getLangQuestions(lang)).slice(0, 10));
+    setCurrentIdx(0);
+    setSelected(null);
+    setAnswered(false);
+    setTimeLeft(20);
+    setScore(0);
+    setCorrect(0);
+  }, [lang]);
 
   const nextQuestion = useCallback(() => {
     if (currentIdx < questions.length - 1) {
@@ -76,8 +100,8 @@ export default function Game() {
   useEffect(() => {
     if (answered || gameOver) return;
     if (timeLeft <= 0) { setAnswered(true); setTimeout(nextQuestion, 1000); return; }
-    const t = setTimeout(() => setTimeLeft((t) => t - 1), 1000);
-    return () => clearTimeout(t);
+    const timer = setTimeout(() => setTimeLeft((t) => t - 1), 1000);
+    return () => clearTimeout(timer);
   }, [timeLeft, answered, gameOver, nextQuestion]);
 
   useEffect(() => {
@@ -87,7 +111,10 @@ export default function Game() {
       const accuracy = Math.round((correct / questions.length) * 100);
       const xpEarned = calculateXP(score, accuracy, questions);
       try {
-        const res = await saveMatchResult(user.uid, { category: CATEGORY_LABELS[category], score, accuracy, xpEarned, questions });
+        const res = await saveMatchResult(user.uid, {
+          category: CATEGORY_LABELS[category],
+          score, accuracy, xpEarned, questions,
+        });
         setResults({ accuracy, xpEarned, ...res });
         refreshUserData();
       } catch (err) { console.error(err); }
@@ -144,7 +171,8 @@ export default function Game() {
             <span className={`text-xs font-semibold px-3 py-1.5 rounded-full border ${CATEGORY_COLORS[category]}`}>{CATEGORY_LABELS[category]}</span>
             <span className="text-sm text-zinc-500">{currentIdx + 1} / {questions.length}</span>
           </div>
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-3">
+            <LangSwitcher />
             <div className="text-right">
               <p className="text-xs text-zinc-600">{g.score}</p>
               <p className="text-lg font-black text-white">{score}</p>
@@ -163,7 +191,9 @@ export default function Game() {
 
         <div className="flex items-start justify-between gap-6 mb-8">
           <AnimatePresence mode="wait">
-            <motion.div key={currentIdx} initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} transition={{ duration: 0.25 }} className="flex-1">
+            <motion.div key={currentIdx} initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -20 }} transition={{ duration: 0.25 }} className="flex-1"
+            >
               <div className="flex items-center gap-2 mb-3">
                 <span className={`text-xs px-2 py-0.5 rounded border font-medium ${DIFF_COLORS[currentQ.difficulty]}`}>
                   {DIFF_LABELS[currentQ.difficulty]}
@@ -185,7 +215,9 @@ export default function Game() {
                 else style = "bg-white/2 border-white/5 text-zinc-600";
               }
               return (
-                <motion.button key={i} whileHover={!answered ? { scale: 1.02 } : {}} whileTap={!answered ? { scale: 0.98 } : {}}
+                <motion.button key={i}
+                  whileHover={!answered ? { scale: 1.02 } : {}}
+                  whileTap={!answered ? { scale: 0.98 } : {}}
                   onClick={() => handleAnswer(i)} disabled={answered}
                   className={`border rounded-xl px-4 py-4 text-sm font-medium text-left transition-all duration-200 ${style}`}
                 >

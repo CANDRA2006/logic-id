@@ -1,138 +1,59 @@
-export const mathLogicQuestions = [
-  {
-    id: "ml_001",
-    question: "If 2x + 3 = 15, what is x?",
-    options: ["4", "5", "6", "7"],
-    correct: 1,
-    difficulty: "easy",
-    explanation: "2x = 12, so x = 6"
-  },
-  {
-    id: "ml_002",
-    question: "What is the next number in the sequence: 2, 6, 12, 20, 30, ?",
-    options: ["38", "40", "42", "44"],
-    correct: 2,
-    difficulty: "medium",
-    explanation: "Differences are 4,6,8,10,12 → next is 30+12=42"
-  },
-  {
-    id: "ml_003",
-    question: "A train travels 120km in 2 hours. How long to travel 300km at the same speed?",
-    options: ["4h", "4.5h", "5h", "5.5h"],
-    correct: 2,
-    difficulty: "easy",
-    explanation: "Speed = 60km/h, 300/60 = 5 hours"
-  },
-  {
-    id: "ml_004",
-    question: "If log₂(x) = 5, what is x?",
-    options: ["10", "16", "32", "64"],
-    correct: 2,
-    difficulty: "hard",
-    explanation: "2^5 = 32"
-  },
-  {
-    id: "ml_005",
-    question: "What is the sum of interior angles of a hexagon?",
-    options: ["540°", "620°", "720°", "840°"],
-    correct: 2,
-    difficulty: "medium",
-    explanation: "(n-2)×180 = 4×180 = 720°"
-  },
-  {
-    id: "ml_006",
-    question: "If 5! = 120, what is 6!?",
-    options: ["600", "620", "720", "840"],
-    correct: 2,
-    difficulty: "easy",
-    explanation: "6! = 6 × 5! = 6 × 120 = 720"
-  },
-  {
-    id: "ml_007",
-    question: "A rectangle has perimeter 50cm. If length is 15cm, what is the area?",
-    options: ["140cm²", "145cm²", "150cm²", "155cm²"],
-    correct: 2,
-    difficulty: "easy",
-    explanation: "Width = (50-30)/2 = 10, Area = 15×10 = 150"
-  },
-  {
-    id: "ml_008",
-    question: "What is the GCD of 48 and 36?",
-    options: ["6", "8", "10", "12"],
-    correct: 3,
-    difficulty: "medium",
-    explanation: "48 = 4×12, 36 = 3×12, GCD = 12"
-  },
-  {
-    id: "ml_009",
-    question: "If x² - 5x + 6 = 0, what are the roots?",
-    options: ["2,3", "1,6", "2,4", "-2,-3"],
-    correct: 0,
-    difficulty: "medium",
-    explanation: "(x-2)(x-3)=0, roots are 2 and 3"
-  },
-  {
-    id: "ml_010",
-    question: "What is 2^10?",
-    options: ["512", "1000", "1024", "2048"],
-    correct: 2,
-    difficulty: "easy",
-    explanation: "2^10 = 1024"
-  },
-  {
-    id: "ml_011",
-    question: "How many prime numbers are between 10 and 30?",
-    options: ["4", "5", "6", "7"],
-    correct: 1,
-    difficulty: "medium",
-    explanation: "11,13,17,19,23,29 → but 5 between exclusive? 11,13,17,19,23 = 5"
-  },
-  {
-    id: "ml_012",
-    question: "The probability of rolling a sum of 7 with two dice is:",
-    options: ["1/6", "5/36", "6/36", "7/36"],
-    correct: 2,
-    difficulty: "hard",
-    explanation: "Combinations: (1,6),(2,5),(3,4),(4,3),(5,2),(6,1) = 6/36 = 1/6"
-  },
-  {
-    id: "ml_013",
-    question: "What is the value of √(144 + 25)?",
-    options: ["12", "13", "14", "15"],
-    correct: 1,
-    difficulty: "easy",
-    explanation: "√169 = 13"
-  },
-  {
-    id: "ml_014",
-    question: "If 3 workers finish a job in 8 days, how long for 6 workers?",
-    options: ["2 days", "3 days", "4 days", "5 days"],
-    correct: 2,
-    difficulty: "medium",
-    explanation: "Work = 3×8 = 24 worker-days, 24/6 = 4 days"
-  },
-  {
-    id: "ml_015",
-    question: "What is the 10th term of arithmetic sequence 3, 7, 11, 15...?",
-    options: ["37", "39", "41", "43"],
-    correct: 1,
-    difficulty: "medium",
-    explanation: "a(n) = 3 + (n-1)×4 = 3 + 36 = 39"
-  },
-  {
-    id: "ml_016",
-    question: "A circle has area 25π. What is its circumference?",
-    options: ["5π", "10π", "15π", "25π"],
-    correct: 1,
-    difficulty: "medium",
-    explanation: "r²=25, r=5, circumference=2πr=10π"
-  },
-  {
-    id: "ml_017",
-    question: "What is the remainder when 2^100 is divided by 3?",
-    options: ["0", "1", "2", "3"],
-    correct: 1,
-    difficulty: "hard",
-    explanation: "2^1 mod 3=2, 2^2 mod 3=1, pattern cycles with period 2. 100 is even → 1"
-  }
-];
+export const mathLogicQuestions = {
+  en: [
+    { id: "ml_001", question: "If 2x + 3 = 15, what is x?", options: ["4", "5", "6", "7"], correct: 2, difficulty: "easy", explanation: "2x = 12, so x = 6" },
+    { id: "ml_002", question: "Next number: 2, 6, 12, 20, 30, ?", options: ["38", "40", "42", "44"], correct: 2, difficulty: "medium", explanation: "Differences are 4,6,8,10,12 → 30+12=42" },
+    { id: "ml_003", question: "A train travels 120km in 2 hours. How long to travel 300km?", options: ["4h", "4.5h", "5h", "5.5h"], correct: 2, difficulty: "easy", explanation: "Speed = 60km/h, 300/60 = 5 hours" },
+    { id: "ml_004", question: "If log₂(x) = 5, what is x?", options: ["10", "16", "32", "64"], correct: 2, difficulty: "hard", explanation: "2^5 = 32" },
+    { id: "ml_005", question: "Sum of interior angles of a hexagon?", options: ["540°", "620°", "720°", "840°"], correct: 2, difficulty: "medium", explanation: "(n-2)×180 = 4×180 = 720°" },
+    { id: "ml_006", question: "If 5! = 120, what is 6!?", options: ["600", "620", "720", "840"], correct: 2, difficulty: "easy", explanation: "6! = 6 × 120 = 720" },
+    { id: "ml_007", question: "Rectangle perimeter is 50cm, length is 15cm. What is the area?", options: ["140cm²", "145cm²", "150cm²", "155cm²"], correct: 2, difficulty: "easy", explanation: "Width = 10, Area = 15×10 = 150" },
+    { id: "ml_008", question: "What is the GCD of 48 and 36?", options: ["6", "8", "10", "12"], correct: 3, difficulty: "medium", explanation: "GCD = 12" },
+    { id: "ml_009", question: "If x² - 5x + 6 = 0, what are the roots?", options: ["2,3", "1,6", "2,4", "-2,-3"], correct: 0, difficulty: "medium", explanation: "(x-2)(x-3)=0" },
+    { id: "ml_010", question: "What is 2^10?", options: ["512", "1000", "1024", "2048"], correct: 2, difficulty: "easy", explanation: "2^10 = 1024" },
+    { id: "ml_011", question: "How many prime numbers between 10 and 30?", options: ["4", "5", "6", "7"], correct: 1, difficulty: "medium", explanation: "11,13,17,19,23 = 5 primes" },
+    { id: "ml_012", question: "Probability of rolling a sum of 7 with two dice?", options: ["1/6", "5/36", "6/36", "7/36"], correct: 2, difficulty: "hard", explanation: "6 combinations out of 36" },
+    { id: "ml_013", question: "What is √(144 + 25)?", options: ["12", "13", "14", "15"], correct: 1, difficulty: "easy", explanation: "√169 = 13" },
+    { id: "ml_014", question: "3 workers finish a job in 8 days. How long for 6 workers?", options: ["2 days", "3 days", "4 days", "5 days"], correct: 2, difficulty: "medium", explanation: "24 worker-days / 6 = 4 days" },
+    { id: "ml_015", question: "10th term of sequence 3, 7, 11, 15...?", options: ["37", "39", "41", "43"], correct: 1, difficulty: "medium", explanation: "a(10) = 3 + 9×4 = 39" },
+    { id: "ml_016", question: "A circle has area 25π. What is its circumference?", options: ["5π", "10π", "15π", "25π"], correct: 1, difficulty: "medium", explanation: "r=5, circumference=10π" },
+    { id: "ml_017", question: "Remainder when 2^100 is divided by 3?", options: ["0", "1", "2", "3"], correct: 1, difficulty: "hard", explanation: "Pattern cycles with period 2, 100 is even → 1" },
+  ],
+  id: [
+    { id: "ml_001", question: "Jika 2x + 3 = 15, berapakah x?", options: ["4", "5", "6", "7"], correct: 2, difficulty: "easy", explanation: "2x = 12, jadi x = 6" },
+    { id: "ml_002", question: "Bilangan berikutnya: 2, 6, 12, 20, 30, ?", options: ["38", "40", "42", "44"], correct: 2, difficulty: "medium", explanation: "Selisihnya 4,6,8,10,12 → 30+12=42" },
+    { id: "ml_003", question: "Kereta menempuh 120km dalam 2 jam. Berapa lama untuk 300km?", options: ["4 jam", "4,5 jam", "5 jam", "5,5 jam"], correct: 2, difficulty: "easy", explanation: "Kecepatan = 60km/jam, 300/60 = 5 jam" },
+    { id: "ml_004", question: "Jika log₂(x) = 5, berapakah x?", options: ["10", "16", "32", "64"], correct: 2, difficulty: "hard", explanation: "2^5 = 32" },
+    { id: "ml_005", question: "Jumlah sudut dalam segi enam?", options: ["540°", "620°", "720°", "840°"], correct: 2, difficulty: "medium", explanation: "(n-2)×180 = 4×180 = 720°" },
+    { id: "ml_006", question: "Jika 5! = 120, berapakah 6!?", options: ["600", "620", "720", "840"], correct: 2, difficulty: "easy", explanation: "6! = 6 × 120 = 720" },
+    { id: "ml_007", question: "Keliling persegi panjang 50cm, panjang 15cm. Berapakah luasnya?", options: ["140cm²", "145cm²", "150cm²", "155cm²"], correct: 2, difficulty: "easy", explanation: "Lebar = 10, Luas = 15×10 = 150" },
+    { id: "ml_008", question: "Berapakah FPB dari 48 dan 36?", options: ["6", "8", "10", "12"], correct: 3, difficulty: "medium", explanation: "FPB = 12" },
+    { id: "ml_009", question: "Jika x² - 5x + 6 = 0, berapakah akar-akarnya?", options: ["2,3", "1,6", "2,4", "-2,-3"], correct: 0, difficulty: "medium", explanation: "(x-2)(x-3)=0" },
+    { id: "ml_010", question: "Berapakah 2^10?", options: ["512", "1000", "1024", "2048"], correct: 2, difficulty: "easy", explanation: "2^10 = 1024" },
+    { id: "ml_011", question: "Berapa banyak bilangan prima antara 10 dan 30?", options: ["4", "5", "6", "7"], correct: 1, difficulty: "medium", explanation: "11,13,17,19,23 = 5 bilangan prima" },
+    { id: "ml_012", question: "Peluang mendapat jumlah 7 dari dua dadu?", options: ["1/6", "5/36", "6/36", "7/36"], correct: 2, difficulty: "hard", explanation: "6 kombinasi dari 36" },
+    { id: "ml_013", question: "Berapakah √(144 + 25)?", options: ["12", "13", "14", "15"], correct: 1, difficulty: "easy", explanation: "√169 = 13" },
+    { id: "ml_014", question: "3 pekerja menyelesaikan pekerjaan dalam 8 hari. Berapa lama untuk 6 pekerja?", options: ["2 hari", "3 hari", "4 hari", "5 hari"], correct: 2, difficulty: "medium", explanation: "24 hari-orang / 6 = 4 hari" },
+    { id: "ml_015", question: "Suku ke-10 dari barisan 3, 7, 11, 15...?", options: ["37", "39", "41", "43"], correct: 1, difficulty: "medium", explanation: "a(10) = 3 + 9×4 = 39" },
+    { id: "ml_016", question: "Lingkaran memiliki luas 25π. Berapakah kelilingnya?", options: ["5π", "10π", "15π", "25π"], correct: 1, difficulty: "medium", explanation: "r=5, keliling=10π" },
+    { id: "ml_017", question: "Sisa pembagian 2^100 oleh 3?", options: ["0", "1", "2", "3"], correct: 1, difficulty: "hard", explanation: "Pola berulang periode 2, 100 genap → 1" },
+  ],
+  es: [
+    { id: "ml_001", question: "Si 2x + 3 = 15, ¿cuánto vale x?", options: ["4", "5", "6", "7"], correct: 2, difficulty: "easy", explanation: "2x = 12, entonces x = 6" },
+    { id: "ml_002", question: "Siguiente número: 2, 6, 12, 20, 30, ?", options: ["38", "40", "42", "44"], correct: 2, difficulty: "medium", explanation: "Diferencias 4,6,8,10,12 → 30+12=42" },
+    { id: "ml_003", question: "Un tren recorre 120km en 2 horas. ¿Cuánto tarda en recorrer 300km?", options: ["4h", "4,5h", "5h", "5,5h"], correct: 2, difficulty: "easy", explanation: "Velocidad = 60km/h, 300/60 = 5 horas" },
+    { id: "ml_004", question: "Si log₂(x) = 5, ¿cuánto vale x?", options: ["10", "16", "32", "64"], correct: 2, difficulty: "hard", explanation: "2^5 = 32" },
+    { id: "ml_005", question: "¿Suma de ángulos interiores de un hexágono?", options: ["540°", "620°", "720°", "840°"], correct: 2, difficulty: "medium", explanation: "(n-2)×180 = 4×180 = 720°" },
+    { id: "ml_006", question: "Si 5! = 120, ¿cuánto es 6!?", options: ["600", "620", "720", "840"], correct: 2, difficulty: "easy", explanation: "6! = 6 × 120 = 720" },
+    { id: "ml_007", question: "Perímetro del rectángulo es 50cm, largo es 15cm. ¿Cuál es el área?", options: ["140cm²", "145cm²", "150cm²", "155cm²"], correct: 2, difficulty: "easy", explanation: "Ancho = 10, Área = 15×10 = 150" },
+    { id: "ml_008", question: "¿Cuál es el MCD de 48 y 36?", options: ["6", "8", "10", "12"], correct: 3, difficulty: "medium", explanation: "MCD = 12" },
+    { id: "ml_009", question: "Si x² - 5x + 6 = 0, ¿cuáles son las raíces?", options: ["2,3", "1,6", "2,4", "-2,-3"], correct: 0, difficulty: "medium", explanation: "(x-2)(x-3)=0" },
+    { id: "ml_010", question: "¿Cuánto es 2^10?", options: ["512", "1000", "1024", "2048"], correct: 2, difficulty: "easy", explanation: "2^10 = 1024" },
+    { id: "ml_011", question: "¿Cuántos números primos hay entre 10 y 30?", options: ["4", "5", "6", "7"], correct: 1, difficulty: "medium", explanation: "11,13,17,19,23 = 5 primos" },
+    { id: "ml_012", question: "¿Probabilidad de obtener suma 7 con dos dados?", options: ["1/6", "5/36", "6/36", "7/36"], correct: 2, difficulty: "hard", explanation: "6 combinaciones de 36" },
+    { id: "ml_013", question: "¿Cuánto es √(144 + 25)?", options: ["12", "13", "14", "15"], correct: 1, difficulty: "easy", explanation: "√169 = 13" },
+    { id: "ml_014", question: "3 trabajadores terminan en 8 días. ¿Cuánto tardan 6 trabajadores?", options: ["2 días", "3 días", "4 días", "5 días"], correct: 2, difficulty: "medium", explanation: "24 días-persona / 6 = 4 días" },
+    { id: "ml_015", question: "¿Término 10 de la secuencia 3, 7, 11, 15...?", options: ["37", "39", "41", "43"], correct: 1, difficulty: "medium", explanation: "a(10) = 3 + 9×4 = 39" },
+    { id: "ml_016", question: "Un círculo tiene área 25π. ¿Cuál es su circunferencia?", options: ["5π", "10π", "15π", "25π"], correct: 1, difficulty: "medium", explanation: "r=5, circunferencia=10π" },
+    { id: "ml_017", question: "¿Residuo de 2^100 dividido entre 3?", options: ["0", "1", "2", "3"], correct: 1, difficulty: "hard", explanation: "Patrón con período 2, 100 es par → 1" },
+  ],
+};

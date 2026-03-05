@@ -1,170 +1,56 @@
-export const criticalThinkingQuestions = [
-  {
-    id: "ct_001",
-    question: "All roses are flowers. Some flowers fade quickly. Therefore:",
-    options: [
-      "All roses fade quickly",
-      "Some roses may fade quickly",
-      "No roses fade quickly",
-      "Roses never fade"
-    ],
-    correct: 1,
-    difficulty: "medium",
-    explanation: "We can only conclude some roses may fade — the overlap is uncertain"
-  },
-  {
-    id: "ct_002",
-    question: "If you're running second in a race and pass the person in 2nd place, what position are you in?",
-    options: ["1st", "2nd", "3rd", "4th"],
-    correct: 1,
-    difficulty: "easy",
-    explanation: "You pass the person in 2nd — so you take 2nd place"
-  },
-  {
-    id: "ct_003",
-    question: "A doctor gives you 3 pills and says take one every half hour. How long before all pills are taken?",
-    options: ["30 min", "60 min", "90 min", "1.5 hrs"],
-    correct: 1,
-    difficulty: "medium",
-    explanation: "Take pill 1 now, pill 2 at 30min, pill 3 at 60min = 60 minutes"
-  },
-  {
-    id: "ct_004",
-    question: "Which of these is NOT a valid logical argument structure?",
-    options: [
-      "If P then Q; P; therefore Q",
-      "If P then Q; not Q; therefore not P",
-      "If P then Q; Q; therefore P",
-      "All A are B; X is A; therefore X is B"
-    ],
-    correct: 2,
-    difficulty: "hard",
-    explanation: "Affirming the consequent is a logical fallacy"
-  },
-  {
-    id: "ct_005",
-    question: "A man is looking at a photo. 'Brothers and sisters I have none, but that man's father is my father's son.' Who is in the photo?",
-    options: ["His uncle", "Himself", "His son", "His father"],
-    correct: 2,
-    difficulty: "hard",
-    explanation: "'My father's son' = himself (no siblings), so 'that man's father' = himself → photo shows his son"
-  },
-  {
-    id: "ct_006",
-    question: "If all Bloops are Razzies, and all Razzies are Lazzies, then:",
-    options: [
-      "All Lazzies are Bloops",
-      "All Bloops are Lazzies",
-      "No Bloops are Lazzies",
-      "Some Lazzies are not Razzies"
-    ],
-    correct: 1,
-    difficulty: "easy",
-    explanation: "Transitive: Bloops→Razzies→Lazzies, so all Bloops are Lazzies"
-  },
-  {
-    id: "ct_007",
-    question: "Which statement is a tautology?",
-    options: [
-      "It will rain or it will be sunny",
-      "It will rain or it will not rain",
-      "If it rains, I will stay home",
-      "Either cats are mammals or dogs are birds"
-    ],
-    correct: 1,
-    difficulty: "hard",
-    explanation: "P ∨ ¬P is always true — a tautology"
-  },
-  {
-    id: "ct_008",
-    question: "You find a coin from 550 BC. How do you know it's a fake?",
-    options: [
-      "Old coins have no year",
-      "No coins existed then",
-      "BC dates weren't known then",
-      "Coins were only paper"
-    ],
-    correct: 2,
-    difficulty: "medium",
-    explanation: "BC/AD dating system didn't exist until centuries after Christ — nobody in 550 BC knew it was 550 BC"
-  },
-  {
-    id: "ct_009",
-    question: "An analogy: Composer is to Symphony as Architect is to:",
-    options: ["Blueprint", "Building", "City", "Brick"],
-    correct: 1,
-    difficulty: "easy",
-    explanation: "A composer creates a symphony; an architect creates a building"
-  },
-  {
-    id: "ct_010",
-    question: "If today is Monday, what day is 100 days from now?",
-    options: ["Tuesday", "Wednesday", "Thursday", "Friday"],
-    correct: 2,
-    difficulty: "medium",
-    explanation: "100 mod 7 = 2, Monday + 2 = Wednesday"
-  },
-  {
-    id: "ct_011",
-    question: "The barber shaves all those who do not shave themselves. Who shaves the barber?",
-    options: [
-      "The barber shaves himself",
-      "Someone else shaves the barber",
-      "The paradox has no solution",
-      "The barber doesn't get shaved"
-    ],
-    correct: 2,
-    difficulty: "hard",
-    explanation: "Russell's paradox — the statement is self-contradictory with no valid resolution"
-  },
-  {
-    id: "ct_012",
-    question: "Which is the strongest argument against universal surveillance?",
-    options: [
-      "It costs too much",
-      "Cameras can malfunction",
-      "It chills free expression and presumption of innocence",
-      "It doesn't catch all criminals"
-    ],
-    correct: 2,
-    difficulty: "medium",
-    explanation: "The strongest principled argument is the systemic harm to civil liberties"
-  },
-  {
-    id: "ct_013",
-    question: "Identify the logical fallacy: 'You can't trust his climate opinion — he drives a car.'",
-    options: ["Straw man", "Ad hominem / Tu quoque", "False dichotomy", "Appeal to authority"],
-    correct: 1,
-    difficulty: "medium",
-    explanation: "Attacking the person's consistency rather than their argument = tu quoque (ad hominem)"
-  },
-  {
-    id: "ct_014",
-    question: "If A > B, B > C, and C > D, which MUST be true?",
-    options: ["A > D", "D > A", "B > D", "Both A>D and B>D"],
-    correct: 3,
-    difficulty: "medium",
-    explanation: "By transitivity: A>B>C>D, so both A>D and B>D are necessarily true"
-  },
-  {
-    id: "ct_015",
-    question: "What is the contrapositive of 'If it rains, I carry an umbrella'?",
-    options: [
-      "If I carry an umbrella, it rains",
-      "If it doesn't rain, I don't carry an umbrella",
-      "If I don't carry an umbrella, it doesn't rain",
-      "It always rains"
-    ],
-    correct: 2,
-    difficulty: "hard",
-    explanation: "Contrapositive of P→Q is ¬Q→¬P"
-  },
-  {
-    id: "ct_016",
-    question: "Three boxes: one has apples, one has oranges, one has both. All labels are wrong. You pick from the 'Both' box and get an apple. What's in the 'Oranges' box?",
-    options: ["Apples", "Oranges", "Both", "Cannot determine"],
-    correct: 0,
-    difficulty: "hard",
-    explanation: "The 'Both' box has apples (all labels wrong). 'Apples' box can't be apples, and since 'Both' has apples, 'Apples' has oranges and 'Oranges' has both. Wait — 'Oranges' box has apples."
-  }
-];
+export const criticalThinkingQuestions = {
+  en: [
+    { id: "ct_001", question: "All roses are flowers. Some flowers fade quickly. Therefore:", options: ["All roses fade quickly", "Some roses may fade quickly", "No roses fade quickly", "Roses never fade"], correct: 1, difficulty: "medium", explanation: "We can only conclude some roses may fade" },
+    { id: "ct_002", question: "If you're running second in a race and pass the person in 2nd place, what position are you in?", options: ["1st", "2nd", "3rd", "4th"], correct: 1, difficulty: "easy", explanation: "You pass the person in 2nd — you take 2nd place" },
+    { id: "ct_003", question: "A doctor gives 3 pills: take one every half hour. How long before all pills are taken?", options: ["30 min", "60 min", "90 min", "120 min"], correct: 1, difficulty: "medium", explanation: "Pill 1 now, pill 2 at 30min, pill 3 at 60min" },
+    { id: "ct_004", question: "Which is NOT a valid logical argument?", options: ["If P then Q; P; therefore Q", "If P then Q; not Q; therefore not P", "If P then Q; Q; therefore P", "All A are B; X is A; therefore X is B"], correct: 2, difficulty: "hard", explanation: "Affirming the consequent is a logical fallacy" },
+    { id: "ct_005", question: "'Brothers and sisters I have none, but that man's father is my father's son.' Who is in the photo?", options: ["His uncle", "Himself", "His son", "His father"], correct: 2, difficulty: "hard", explanation: "'My father's son' = himself → photo shows his son" },
+    { id: "ct_006", question: "All Bloops are Razzies, all Razzies are Lazzies. Therefore:", options: ["All Lazzies are Bloops", "All Bloops are Lazzies", "No Bloops are Lazzies", "Some Lazzies are not Razzies"], correct: 1, difficulty: "easy", explanation: "Transitive: Bloops→Razzies→Lazzies" },
+    { id: "ct_007", question: "Which statement is a tautology?", options: ["It will rain or it will be sunny", "It will rain or it will not rain", "If it rains, I stay home", "Cats are mammals or dogs are birds"], correct: 1, difficulty: "hard", explanation: "P ∨ ¬P is always true — a tautology" },
+    { id: "ct_008", question: "You find a coin marked '550 BC'. How do you know it's fake?", options: ["Old coins have no year", "No coins existed then", "BC dates weren't known then", "Coins were only paper"], correct: 2, difficulty: "medium", explanation: "Nobody in 550 BC knew it was '550 BC'" },
+    { id: "ct_009", question: "Composer is to Symphony as Architect is to:", options: ["Blueprint", "Building", "City", "Brick"], correct: 1, difficulty: "easy", explanation: "A composer creates a symphony; an architect creates a building" },
+    { id: "ct_010", question: "If today is Monday, what day is 100 days from now?", options: ["Tuesday", "Wednesday", "Thursday", "Friday"], correct: 2, difficulty: "medium", explanation: "100 mod 7 = 2, Monday + 2 = Wednesday" },
+    { id: "ct_011", question: "The barber shaves all who do not shave themselves. Who shaves the barber?", options: ["The barber shaves himself", "Someone else shaves the barber", "The paradox has no solution", "The barber doesn't get shaved"], correct: 2, difficulty: "hard", explanation: "Russell's paradox — self-contradictory with no valid resolution" },
+    { id: "ct_012", question: "Which is the strongest argument against universal surveillance?", options: ["It costs too much", "Cameras can malfunction", "It chills free expression and presumption of innocence", "It doesn't catch all criminals"], correct: 2, difficulty: "medium", explanation: "The strongest principled argument is harm to civil liberties" },
+    { id: "ct_013", question: "Identify the fallacy: 'You can't trust his climate opinion — he drives a car.'", options: ["Straw man", "Ad hominem / Tu quoque", "False dichotomy", "Appeal to authority"], correct: 1, difficulty: "medium", explanation: "Attacking consistency rather than the argument = tu quoque" },
+    { id: "ct_014", question: "If A > B, B > C, and C > D, which MUST be true?", options: ["A > D only", "D > A", "B > D only", "Both A>D and B>D"], correct: 3, difficulty: "medium", explanation: "By transitivity: A>B>C>D, so both A>D and B>D" },
+    { id: "ct_015", question: "Contrapositive of 'If it rains, I carry an umbrella'?", options: ["If I carry an umbrella, it rains", "If it doesn't rain, I don't carry umbrella", "If I don't carry umbrella, it doesn't rain", "It always rains"], correct: 2, difficulty: "hard", explanation: "Contrapositive of P→Q is ¬Q→¬P" },
+    { id: "ct_016", question: "Three mislabeled boxes: 'Apples', 'Oranges', 'Both'. You pick from 'Both' and get an apple. What's in 'Oranges'?", options: ["Apples", "Oranges", "Both", "Cannot determine"], correct: 2, difficulty: "hard", explanation: "'Both' has apples → 'Apples' has oranges → 'Oranges' has both" },
+  ],
+  id: [
+    { id: "ct_001", question: "Semua mawar adalah bunga. Beberapa bunga layu cepat. Oleh karena itu:", options: ["Semua mawar layu cepat", "Beberapa mawar mungkin layu cepat", "Tidak ada mawar yang layu", "Mawar tidak pernah layu"], correct: 1, difficulty: "medium", explanation: "Kita hanya bisa menyimpulkan beberapa mawar mungkin layu" },
+    { id: "ct_002", question: "Kamu berlari di posisi kedua dan menyalip orang di posisi 2. Di posisi berapa kamu sekarang?", options: ["1", "2", "3", "4"], correct: 1, difficulty: "easy", explanation: "Kamu menyalip orang di posisi 2 — kamu mengambil posisi 2" },
+    { id: "ct_003", question: "Dokter memberi 3 pil: minum satu setiap setengah jam. Berapa lama sampai semua pil diminum?", options: ["30 menit", "60 menit", "90 menit", "120 menit"], correct: 1, difficulty: "medium", explanation: "Pil 1 sekarang, pil 2 di 30 menit, pil 3 di 60 menit" },
+    { id: "ct_004", question: "Mana yang BUKAN argumen logis yang valid?", options: ["Jika P maka Q; P; maka Q", "Jika P maka Q; bukan Q; maka bukan P", "Jika P maka Q; Q; maka P", "Semua A adalah B; X adalah A; maka X adalah B"], correct: 2, difficulty: "hard", explanation: "Menegaskan konsekuen adalah kekeliruan logika" },
+    { id: "ct_005", question: "'Saya tidak punya saudara, tapi ayah pria itu adalah anak ayahku.' Siapa di foto?", options: ["Pamannya", "Dirinya sendiri", "Anaknya", "Ayahnya"], correct: 2, difficulty: "hard", explanation: "'Anak ayahku' = dirinya sendiri → foto menunjukkan anaknya" },
+    { id: "ct_006", question: "Semua Bloop adalah Razzie, semua Razzie adalah Lazzie. Maka:", options: ["Semua Lazzie adalah Bloop", "Semua Bloop adalah Lazzie", "Tidak ada Bloop yang Lazzie", "Beberapa Lazzie bukan Razzie"], correct: 1, difficulty: "easy", explanation: "Transitif: Bloop→Razzie→Lazzie" },
+    { id: "ct_007", question: "Pernyataan mana yang merupakan tautologi?", options: ["Akan hujan atau cerah", "Akan hujan atau tidak akan hujan", "Jika hujan, saya di rumah", "Kucing adalah mamalia atau anjing adalah burung"], correct: 1, difficulty: "hard", explanation: "P ∨ ¬P selalu benar — tautologi" },
+    { id: "ct_008", question: "Kamu menemukan koin bertulisan '550 SM'. Bagaimana kamu tahu itu palsu?", options: ["Koin lama tidak ada tahunnya", "Koin belum ada saat itu", "Penanggalan SM belum dikenal saat itu", "Koin hanya dari kertas"], correct: 2, difficulty: "medium", explanation: "Tidak ada yang tahu itu '550 SM' pada masa itu" },
+    { id: "ct_009", question: "Komposer membuat Simfoni seperti Arsitek membuat:", options: ["Cetak biru", "Gedung", "Kota", "Bata"], correct: 1, difficulty: "easy", explanation: "Komposer membuat simfoni; arsitek membuat gedung" },
+    { id: "ct_010", question: "Jika hari ini Senin, hari apa 100 hari dari sekarang?", options: ["Selasa", "Rabu", "Kamis", "Jumat"], correct: 2, difficulty: "medium", explanation: "100 mod 7 = 2, Senin + 2 = Rabu" },
+    { id: "ct_011", question: "Tukang cukur mencukur semua yang tidak mencukur diri sendiri. Siapa yang mencukur tukang cukur?", options: ["Tukang cukur mencukur dirinya", "Orang lain mencukurnya", "Paradoks ini tidak ada solusinya", "Tukang cukur tidak dicukur"], correct: 2, difficulty: "hard", explanation: "Paradoks Russell — kontradiksi diri tanpa solusi" },
+    { id: "ct_012", question: "Argumen terkuat menentang pengawasan universal?", options: ["Biayanya terlalu mahal", "Kamera bisa rusak", "Menghambat kebebasan berekspresi dan asas praduga tak bersalah", "Tidak menangkap semua kriminal"], correct: 2, difficulty: "medium", explanation: "Argumen prinsip terkuat adalah pelanggaran kebebasan sipil" },
+    { id: "ct_013", question: "Identifikasi kekeliruan: 'Kamu tidak bisa percaya pendapat iklimnya — dia mengendarai mobil.'", options: ["Manusia jerami", "Ad hominem / Tu quoque", "Dikotomi palsu", "Banding otoritas"], correct: 1, difficulty: "medium", explanation: "Menyerang konsistensi bukan argumennya = tu quoque" },
+    { id: "ct_014", question: "Jika A > B, B > C, dan C > D, mana yang PASTI benar?", options: ["Hanya A > D", "D > A", "Hanya B > D", "A>D dan B>D keduanya"], correct: 3, difficulty: "medium", explanation: "Transitif: A>B>C>D, jadi A>D dan B>D keduanya benar" },
+    { id: "ct_015", question: "Kontraposisi dari 'Jika hujan, saya membawa payung'?", options: ["Jika saya bawa payung, hujan", "Jika tidak hujan, saya tidak bawa payung", "Jika saya tidak bawa payung, tidak hujan", "Selalu hujan"], correct: 2, difficulty: "hard", explanation: "Kontraposisi P→Q adalah ¬Q→¬P" },
+    { id: "ct_016", question: "Tiga kotak salah label: 'Apel', 'Jeruk', 'Keduanya'. Ambil dari 'Keduanya' dapat apel. Apa di kotak 'Jeruk'?", options: ["Apel", "Jeruk", "Keduanya", "Tidak bisa ditentukan"], correct: 2, difficulty: "hard", explanation: "'Keduanya' berisi apel → 'Apel' berisi jeruk → 'Jeruk' berisi keduanya" },
+  ],
+  es: [
+    { id: "ct_001", question: "Todas las rosas son flores. Algunas flores se marchitan rápido. Por lo tanto:", options: ["Todas las rosas se marchitan", "Algunas rosas pueden marchitarse", "Ninguna rosa se marchita", "Las rosas nunca se marchitan"], correct: 1, difficulty: "medium", explanation: "Solo podemos concluir que algunas rosas pueden marchitarse" },
+    { id: "ct_002", question: "Vas segundo en una carrera y adelantas al que va segundo. ¿En qué posición quedas?", options: ["1°", "2°", "3°", "4°"], correct: 1, difficulty: "easy", explanation: "Adelantas al de 2° — ocupas el 2° puesto" },
+    { id: "ct_003", question: "Un médico da 3 pastillas: toma una cada media hora. ¿Cuánto tiempo pasa hasta tomarlas todas?", options: ["30 min", "60 min", "90 min", "120 min"], correct: 1, difficulty: "medium", explanation: "Pastilla 1 ahora, pastilla 2 a los 30min, pastilla 3 a los 60min" },
+    { id: "ct_004", question: "¿Cuál NO es un argumento lógico válido?", options: ["Si P entonces Q; P; por lo tanto Q", "Si P entonces Q; no Q; por lo tanto no P", "Si P entonces Q; Q; por lo tanto P", "Todos A son B; X es A; por lo tanto X es B"], correct: 2, difficulty: "hard", explanation: "Afirmar el consecuente es una falacia lógica" },
+    { id: "ct_005", question: "'No tengo hermanos, pero el padre de ese hombre es el hijo de mi padre.' ¿Quién está en la foto?", options: ["Su tío", "Él mismo", "Su hijo", "Su padre"], correct: 2, difficulty: "hard", explanation: "'El hijo de mi padre' = él mismo → la foto muestra a su hijo" },
+    { id: "ct_006", question: "Todos los Bloops son Razzies, todos los Razzies son Lazzies. Por lo tanto:", options: ["Todos los Lazzies son Bloops", "Todos los Bloops son Lazzies", "Ningún Bloop es Lazzie", "Algunos Lazzies no son Razzies"], correct: 1, difficulty: "easy", explanation: "Transitivo: Bloops→Razzies→Lazzies" },
+    { id: "ct_007", question: "¿Cuál es una tautología?", options: ["Lloverá o hará sol", "Lloverá o no lloverá", "Si llueve, me quedo en casa", "Los gatos son mamíferos o los perros son aves"], correct: 1, difficulty: "hard", explanation: "P ∨ ¬P siempre es verdadero — tautología" },
+    { id: "ct_008", question: "Encuentras una moneda marcada '550 a.C.' ¿Cómo sabes que es falsa?", options: ["Las monedas antiguas no tienen año", "No existían monedas entonces", "La datación a.C. no se conocía entonces", "Las monedas eran de papel"], correct: 2, difficulty: "medium", explanation: "Nadie en 550 a.C. sabía que era '550 a.C.'" },
+    { id: "ct_009", question: "Compositor es a Sinfonía como Arquitecto es a:", options: ["Plano", "Edificio", "Ciudad", "Ladrillo"], correct: 1, difficulty: "easy", explanation: "Un compositor crea una sinfonía; un arquitecto crea un edificio" },
+    { id: "ct_010", question: "Si hoy es lunes, ¿qué día es dentro de 100 días?", options: ["Martes", "Miércoles", "Jueves", "Viernes"], correct: 2, difficulty: "medium", explanation: "100 mod 7 = 2, lunes + 2 = miércoles" },
+    { id: "ct_011", question: "El barbero afeita a todos los que no se afeitan solos. ¿Quién afeita al barbero?", options: ["El barbero se afeita solo", "Alguien más lo afeita", "La paradoja no tiene solución", "El barbero no se afeita"], correct: 2, difficulty: "hard", explanation: "Paradoja de Russell — autocontradictoria sin solución" },
+    { id: "ct_012", question: "¿Cuál es el argumento más fuerte contra la vigilancia universal?", options: ["Es muy costosa", "Las cámaras pueden fallar", "Reprime la libertad de expresión y la presunción de inocencia", "No atrapa a todos los criminales"], correct: 2, difficulty: "medium", explanation: "El argumento de principio más fuerte es el daño a las libertades civiles" },
+    { id: "ct_013", question: "Identifica la falacia: 'No puedes confiar en su opinión climática — conduce un coche.'", options: ["Hombre de paja", "Ad hominem / Tu quoque", "Falsa dicotomía", "Apelación a la autoridad"], correct: 1, difficulty: "medium", explanation: "Atacar la consistencia en vez del argumento = tu quoque" },
+    { id: "ct_014", question: "Si A > B, B > C y C > D, ¿qué es necesariamente verdad?", options: ["Solo A > D", "D > A", "Solo B > D", "Tanto A>D como B>D"], correct: 3, difficulty: "medium", explanation: "Por transitividad: A>B>C>D, por lo tanto A>D y B>D" },
+    { id: "ct_015", question: "¿Contrapositivo de 'Si llueve, llevo paraguas'?", options: ["Si llevo paraguas, llueve", "Si no llueve, no llevo paraguas", "Si no llevo paraguas, no llueve", "Siempre llueve"], correct: 2, difficulty: "hard", explanation: "El contrapositivo de P→Q es ¬Q→¬P" },
+    { id: "ct_016", question: "Tres cajas mal etiquetadas: 'Manzanas', 'Naranjas', 'Ambas'. Sacas del 'Ambas' y obtienes manzana. ¿Qué hay en 'Naranjas'?", options: ["Manzanas", "Naranjas", "Ambas", "No se puede determinar"], correct: 2, difficulty: "hard", explanation: "'Ambas' tiene manzanas → 'Manzanas' tiene naranjas → 'Naranjas' tiene ambas" },
+  ],
+};
