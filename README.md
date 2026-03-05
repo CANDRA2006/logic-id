@@ -1,7 +1,7 @@
 # Logic Arena
 
 <p align="center">
-  <img src="docs/screenshots/home.png" alt="Logic Arena" width="100%" />
+  <img src="docs/screenshots/Home.png" alt="Logic Arena" width="100%" />
 </p>
 
 <p align="center">
