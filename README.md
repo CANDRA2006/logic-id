@@ -275,17 +275,5 @@ firebase deploy
 
 ---
 
-## Kontribusi
-
-Pull request sangat disambut! Untuk perubahan besar, buka issue terlebih dahulu.
-
-```bash
-# Fork repo, lalu:
-git checkout -b feature/nama-fitur
-git commit -m "feat: tambah fitur baru"
-git push origin feature/nama-fitur
-# Buka Pull Request
-```
-
 ## AUTHOR 
 CANDRA 
